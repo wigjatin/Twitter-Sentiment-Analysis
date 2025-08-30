@@ -2,6 +2,10 @@ import streamlit as st
 import os
 import pickle
 import re
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+stop_words = set(stopwords.words("english"))
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
