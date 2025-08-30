@@ -1,11 +1,14 @@
 import streamlit as st
+import os
 import pickle
 import re
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-model = pickle.load(open("D:/twitter sentiment analysis/twitter_analysis_model.sav", "rb"))
-vectorizer = pickle.load(open("D:/twitter sentiment analysis/vectorizer.pkl", "rb"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model = pickle.load(open(os.path.join(BASE_DIR, "twitter_analysis_model.sav"), "rb"))
+vectorizer = pickle.load(open(os.path.join(BASE_DIR, "vectorizer.pkl"), "rb"))
 
 stop_words = set(stopwords.words("english"))
 port_stem = PorterStemmer()
